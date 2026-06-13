@@ -716,6 +716,10 @@ h3 {
   color: var(--text);
   line-height: 1.7;
 }
+.uber-list li .u-text {
+  flex: 1;
+  min-width: 0;
+}
 .uber-list li .u-dot {
   width: 22px; height: 22px; min-width: 22px; flex-shrink: 0;
   background: var(--accent-light);
