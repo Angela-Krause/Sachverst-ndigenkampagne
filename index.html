@@ -961,6 +961,12 @@ function toggleDropdown(e) { e.preventDefault(); document.getElementById('ddPare
 document.querySelectorAll('.nav-dropdown a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('ddParent').classList.remove('open'); document.getElementById('navLinks').classList.remove('open'); }); });
 document.addEventListener('click', function(e) { if (!e.target.closest('#nav')) { var nl = document.getElementById('navLinks'); if (nl) nl.classList.remove('open'); var dd = document.getElementById('ddParent'); if (dd) dd.classList.remove('open'); } });
 </script>
+<!-- MOBILE CTA BAR -->
+<div class="mobile-cta-bar">
+  <a href="tel:+491608006113" class="mobile-cta-call">📞 Jetzt anrufen</a>
+  <a href="#kontakt" class="mobile-cta-contact">✉ Kostenlos anfragen</a>
+</div>
+
 <!-- COOKIE BANNER -->
 <div id="cb-overlay"></div>
 <div id="cb-banner" role="dialog" aria-modal="true" aria-label="Cookie-Einstellungen">
