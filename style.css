@@ -1088,6 +1088,7 @@ h3 {
   .kontakt-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .prozess-grid { grid-template-columns: 1fr 1fr; }
+  .kontakt-tab { display: none !important; }
   .prozess-grid::before { display: none; }
 }
 @media (max-width: 768px) {
