@@ -423,23 +423,24 @@ h1 .italic { font-style: italic; color: #a5d6a7; }
   position: fixed;
   right: 0;
   top: 50%;
-  transform: translateY(-50%) rotate(90deg) translateX(50%);
-  transform-origin: right center;
+  transform: translateY(-50%);
   background: var(--primary);
   color: white;
   font-size: 0.78rem;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.6rem 1.2rem;
-  border-radius: var(--radius) var(--radius) 0 0;
+  padding: 0.75rem 0.5rem;
+  border-radius: var(--radius) 0 0 var(--radius);
   z-index: 50;
-  writing-mode: horizontal-tb;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, right 0.2s;
   box-shadow: -2px 0 12px rgba(0,0,0,0.15);
+  text-decoration: none;
 }
-.kontakt-tab:hover { background: var(--primary-dark); }
+.kontakt-tab:hover { background: var(--primary-dark); right: 2px; }
 
 /* ── SECTIONS ── */
 section { padding: 5rem 0; }
