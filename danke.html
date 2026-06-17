@@ -195,7 +195,30 @@
   </div>
 </footer>
 
-
+<script>
+'use strict';
+(function() {
+  var STORAGE_KEY = 'krause_immo_consent';
+  try {
+    var raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return;
+    var data = JSON.parse(raw);
+    if (data.expires && Date.now() > data.expires) return;
+    loadGTM();
+    gtag('consent', 'update', {
+      'ad_storage':         data.marketing ? 'granted' : 'denied',
+      'ad_user_data':       data.marketing ? 'granted' : 'denied',
+      'ad_personalization': data.marketing ? 'granted' : 'denied',
+      'analytics_storage':  data.marketing ? 'granted' : 'denied',
+      'functionality_storage':   data.marketing ? 'granted' : 'denied',
+      'personalization_storage': data.marketing ? 'granted' : 'denied',
+      'security_storage': 'denied'
+    });
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'event': 'consent_update', 'gtm_consent': data.gtm ? 'granted' : 'denied', 'marketing_consent': data.marketing ? 'granted' : 'denied' });
+  } catch(e) {}
+})();
+</script>
 </body>
 </html>
 
