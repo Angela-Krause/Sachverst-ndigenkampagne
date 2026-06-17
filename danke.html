@@ -198,13 +198,13 @@
 <script>
 'use strict';
 (function() {
+  loadGTM();
   var STORAGE_KEY = 'krause_immo_consent';
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return;
     var data = JSON.parse(raw);
     if (data.expires && Date.now() > data.expires) return;
-    loadGTM();
     gtag('consent', 'update', {
       'ad_storage':         data.marketing ? 'granted' : 'denied',
       'ad_user_data':       data.marketing ? 'granted' : 'denied',
