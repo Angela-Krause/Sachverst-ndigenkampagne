@@ -607,15 +607,13 @@
             <input type="checkbox" id="dsgvo" name="dsgvo" required>
             <label for="dsgvo">Ich bin damit einverstanden, dass Angela Krause meine Kontaktdaten zur Bearbeitung meiner Anfrage speichert. Weitere Informationen in der <a href="#">Datenschutzerklärung</a>.</label>
           </div>
-          <button type="submit" class="btn-submit">Jetzt Anfrage absenden →</button>
+          <button type="submit" class="btn-submit" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({'event':'form_submit','form_name':'kontaktformular'});">Jetzt Anfrage absenden →</button>
         </form>
         <script>
         document.querySelector('.kontakt-form form').addEventListener('submit', function(e) {
           e.preventDefault();
           var form = this;
           var data = new FormData(form);
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ 'event': 'form_submit', 'form_name': 'kontaktformular' });
           fetch(form.action, { method: 'POST', body: data }).then(function() {
             window.open('https://www.gutachter-krause.de/danke.html', '_blank');
             form.reset();
