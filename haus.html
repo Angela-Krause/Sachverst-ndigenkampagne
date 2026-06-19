@@ -15,8 +15,14 @@
       'security_storage': 'denied',
       'wait_for_update': 1000
     });
-    function loadGTM() { if (window._gtmLoaded) return; window._gtmLoaded = true; (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KH98G2V6'); }
   </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KH98G2V6');</script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hausgutachterin Bamberg – Haus Bewertung Angela Krause (M.Sc.) | DEKRA-zertifiziert</title>
@@ -566,7 +572,6 @@ document.addEventListener('click', function(e) {
   chkMktg.addEventListener('change', function() { if (this.checked) chkGtm.checked = true; });
   chkGtm.addEventListener('change', function() { if (!this.checked) chkMktg.checked = false; });
   function applyConsent(gtm, marketing) {
-    loadGTM();
     gtag('consent', 'update', {
       'ad_storage':         marketing ? 'granted' : 'denied',
       'ad_user_data':       marketing ? 'granted' : 'denied',
