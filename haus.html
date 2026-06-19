@@ -509,8 +509,10 @@ document.addEventListener('click', function(e) {
   }
   var mailLink = e.target.closest('a[href^="mailto:"]');
   if (mailLink) {
+    e.preventDefault();
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ 'event': 'email_click', 'email_address': mailLink.href.replace('mailto:', '') });
+    setTimeout(function() { window.location.href = mailLink.href; }, 200);
   }
 });
 </script>
