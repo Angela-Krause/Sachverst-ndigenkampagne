@@ -405,6 +405,8 @@
           e.preventDefault();
           var form = this;
           var data = new FormData(form);
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ 'event': 'form_submit', 'form_name': 'kontaktformular' });
           fetch(form.action, { method: 'POST', body: data }).then(function() {
             window.open('https://www.gutachter-krause.de/danke.html', '_blank');
             form.reset();
