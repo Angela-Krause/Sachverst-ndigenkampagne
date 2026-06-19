@@ -502,10 +502,15 @@ document.addEventListener('click', function(e) { if (!e.target.closest('#nav')) 
 </script>
 <script>
 document.addEventListener('click', function(e) {
-  var link = e.target.closest('a[href^="tel:"]');
-  if (link) {
+  var telLink = e.target.closest('a[href^="tel:"]');
+  if (telLink) {
     window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push({ 'event': 'phone_click', 'phone_number': link.href.replace('tel:', '') });
+    window.dataLayer.push({ 'event': 'phone_click', 'phone_number': telLink.href.replace('tel:', '') });
+  }
+  var mailLink = e.target.closest('a[href^="mailto:"]');
+  if (mailLink) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'event': 'email_click', 'email_address': mailLink.href.replace('mailto:', '') });
   }
 });
 </script>
