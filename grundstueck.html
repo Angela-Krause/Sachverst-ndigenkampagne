@@ -552,6 +552,15 @@ function toggleDropdown(e) { e.preventDefault(); document.getElementById('ddPare
 document.querySelectorAll('.nav-dropdown a').forEach(function(a){ a.addEventListener('click', function(){ document.getElementById('ddParent').classList.remove('open'); document.getElementById('navLinks').classList.remove('open'); }); });
 document.addEventListener('click', function(e) { if (!e.target.closest('#nav')) { var nl = document.getElementById('navLinks'); if (nl) nl.classList.remove('open'); var dd = document.getElementById('ddParent'); if (dd) dd.classList.remove('open'); } });
 </script>
+<script>
+document.addEventListener('click', function(e) {
+  var link = e.target.closest('a[href^="tel:"]');
+  if (link) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'event': 'phone_click', 'phone_number': link.href.replace('tel:', '') });
+  }
+});
+</script>
 <!-- MOBILE CTA BAR -->
 <div class="mobile-cta-bar">
   <a href="tel:+491608006113" class="mobile-cta-call">📞 Jetzt anrufen</a>
