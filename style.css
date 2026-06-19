@@ -218,7 +218,7 @@ a { text-decoration: none; color: inherit; }
   gap: 0.4rem;
   white-space: nowrap;
 }
-.nav-phone svg { width: 18px; height: 18px; flex-shrink: 0; fill: var(--primary); stroke: var(--primary); }
+.nav-phone svg { width: 18px; height: 18px; flex-shrink: 0; overflow: visible; }
 
 /* ── BUTTONS ── */
 .btn {
