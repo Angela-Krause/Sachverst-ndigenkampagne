@@ -421,25 +421,26 @@ h1 .italic { font-style: italic; color: #a5d6a7; }
 /* ── KONTAKT SEITENTAB ── */
 .kontakt-tab {
   position: fixed;
-  right: -64px;
+  right: 0;
   top: 50%;
   transform: translateY(-50%);
+  writing-mode: vertical-rl;
   background: var(--primary);
   color: white;
   font-size: 0.8rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.7rem 1.1rem;
+  padding: 1.1rem 0.7rem;
   border-radius: var(--radius) 0 0 var(--radius);
   z-index: 50;
   white-space: nowrap;
   cursor: pointer;
-  transition: right 0.3s ease, background 0.2s;
+  transition: background 0.2s;
   box-shadow: -3px 0 12px rgba(0,0,0,0.18);
   text-decoration: none;
 }
-.kontakt-tab:hover { right: 0; background: var(--primary-dark); }
+.kontakt-tab:hover { background: var(--primary-dark); }
 
 /* ── SECTIONS ── */
 section { padding: 5rem 0; }
