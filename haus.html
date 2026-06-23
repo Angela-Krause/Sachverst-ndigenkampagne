@@ -87,6 +87,63 @@
   @media (max-width: 640px) { #cb-banner { padding: 1.2rem 1rem; } .cb-buttons { flex-direction: column; } .cb-btn { min-width: unset; } }
   </style>
   <script src="https://api.nforms.eu/shield.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Hausbewertung Bamberg",
+        "description": "Professionelle Hausbewertung durch DEKRA-zertifizierte Gutachterin Angela Krause (M.Sc.) in Bamberg und Region. Verkehrswertgutachten und Kurzgutachten für Einfamilienhäuser, Zweifamilienhäuser und Mehrfamilienhäuser zum Festpreis.",
+        "provider": { "@id": "https://www.gutachter-krause.de/#business" },
+        "serviceType": "Hausbewertung",
+        "areaServed": { "@type": "City", "name": "Bamberg" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welche Vorteile hat ein Gutachten bei der Bewertung meines Hauses?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Mit einem professionellen Hausgutachten erhalten Sie eine realistische Einschätzung des Verkaufspreises. Es ermöglicht fundierte Kauf- oder Verkaufsentscheidungen und bietet Preisverhandlungs-Argumente sowie Steuereinsparmöglichkeiten im Wert von mehreren tausend Euro." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet die Bewertung meines Hauses?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Das Honorar bemisst sich am Verkehrswert des Hauses sowie an der Schwierigkeit der Bewertung. Angela Krause erstellt Ihnen gerne ein individuelles Angebot zum Festpreis – inkl. Anfahrt, transparent und ohne versteckte Kosten." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie schnell kann mein Haus bewertet werden?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Bei Beauftragung wird Ihnen ein konkreter Zeithorizont genannt. Aktuell können Sie mit einer Lieferzeit von wenigen Wochen rechnen. Kurzfristige Besichtigungen sind möglich." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist eine Vor-Ort-Besichtigung immer notwendig?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja, eine Vor-Ort-Besichtigung ist in der Regel unerlässlich. Sie ermöglicht die Erfassung von Zustand, Ausstattung, Lage und individuellen Merkmalen des Hauses." }
+          },
+          {
+            "@type": "Question",
+            "name": "Welches Gutachten brauche ich für das Finanzamt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Für steuerliche Zwecke wird in der Regel ein Verkehrswertgutachten gemäß § 194 BauGB benötigt, das streng nach dem Bewertungsgesetz (BewG) und der ImmoWertV erstellt wird." }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.gutachter-krause.de/haus/",
+        "name": "Hausgutachterin Bamberg – Hausbewertung Angela Krause (M.Sc.)",
+        "description": "Zertifizierte Hausgutachterin Angela Krause (M.Sc.) in Bamberg & Region. Professionelle Hausbewertung für Erbschaft, Scheidung, Verkauf & Finanzamt. Festpreis.",
+        "url": "https://www.gutachter-krause.de/haus/",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-content h1", ".hero-sub", ".faq-q", ".faq-a"]
+        },
+        "about": { "@id": "https://www.gutachter-krause.de/#business" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <!-- GTM noscript -->

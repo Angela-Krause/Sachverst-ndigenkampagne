@@ -87,6 +87,63 @@
   @media (max-width: 640px) { #cb-banner { padding: 1.2rem 1rem; } .cb-buttons { flex-direction: column; } .cb-btn { min-width: unset; } }
   </style>
   <script src="https://api.nforms.eu/shield.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "name": "Grundstücksbewertung Bamberg",
+        "description": "Professionelle Grundstücksbewertung durch DEKRA-zertifizierte Gutachterin Angela Krause (M.Sc.) in Bamberg und Region. Verkehrswertgutachten für bebaute und unbebaute Grundstücke zum Festpreis.",
+        "provider": { "@id": "https://www.gutachter-krause.de/#business" },
+        "serviceType": "Grundstücksbewertung",
+        "areaServed": { "@type": "City", "name": "Bamberg" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welche Vorteile hat ein Gutachten bei der Bewertung meines Grundstücks?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Mit einem professionellen Grundstücksgutachten erhalten Sie eine realistische Einschätzung des Marktwertes. Es bietet Ihnen Preisverhandlungs-Argumente und Steuereinsparmöglichkeiten im Wert von mehreren tausend Euro. Bei Erbschaften oder Schenkungen schafft es eine rechtssichere Grundlage für faire Vermögensaufteilungen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet die Bewertung meines Grundstücks?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Jedes Grundstück ist ein Unikat. Das Honorar bemisst sich am Verkehrswert des Grundstücks sowie an der Schwierigkeit der Bewertung. Angela Krause erstellt Ihnen gerne ein individuelles Angebot zum Festpreis – inkl. Anfahrt, transparent und ohne versteckte Kosten." }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie schnell kann mein Grundstück bewertet werden?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Bei Beauftragung wird Ihnen ein konkreter Zeithorizont genannt. Aktuell können Sie mit einer Lieferzeit von wenigen Wochen rechnen. Kurzfristige Besichtigungen sind möglich." }
+          },
+          {
+            "@type": "Question",
+            "name": "Welches Verfahren wird bei der Grundstücksbewertung angewendet?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Bei der Grundstücksbewertung wird primär das Vergleichswertverfahren eingesetzt – der Wert wird anhand ähnlicher, kürzlich verkaufter Grundstücke ermittelt. Bei unzureichenden Vergleichswerten kommen das Ertragswertverfahren oder Sachwertverfahren zum Einsatz." }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist eine Vor-Ort-Besichtigung immer notwendig?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja, eine Vor-Ort-Besichtigung ist in der Regel unerlässlich. Sie ermöglicht die Erfassung von Lage, Topographie, Bodenbeschaffenheit, Zustand und individuellen Merkmalen des Grundstücks." }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.gutachter-krause.de/grundstueck/",
+        "name": "Grundstücksbewertung Bamberg – Gutachterin Angela Krause (M.Sc.)",
+        "description": "Zertifizierte Grundstücksgutachterin Angela Krause (M.Sc.) in Bamberg & Region. Professionelle Grundstücksbewertung für Erbschaft, Scheidung, Verkauf & Finanzamt. Festpreis.",
+        "url": "https://www.gutachter-krause.de/grundstueck/",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-content h1", ".hero-sub", ".faq-q", ".faq-a"]
+        },
+        "about": { "@id": "https://www.gutachter-krause.de/#business" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <!-- GTM noscript -->

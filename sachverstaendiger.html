@@ -87,6 +87,80 @@
   @media (max-width: 640px) { #cb-banner { padding: 1.2rem 1rem; } .cb-buttons { flex-direction: column; } .cb-btn { min-width: unset; } }
   </style>
   <script src="https://api.nforms.eu/shield.js"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://www.gutachter-krause.de/#business",
+        "name": "Immobiliensachverständige Angela Krause",
+        "url": "https://www.gutachter-krause.de/",
+        "telephone": "+491608006113",
+        "email": "info@immobilienbewertung-krause.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Peter-Graf-Str. 7",
+          "addressLocality": "Stegaurach",
+          "postalCode": "96135",
+          "addressRegion": "Bayern",
+          "addressCountry": "DE"
+        },
+        "areaServed": [
+          { "@type": "City", "name": "Bamberg" },
+          { "@type": "City", "name": "Stegaurach" },
+          { "@type": "State", "name": "Bayern" }
+        ],
+        "priceRange": "$$"
+      },
+      {
+        "@type": "Service",
+        "name": "Immobiliensachverständige Bamberg",
+        "description": "Unabhängige Immobilienbewertung durch DEKRA-zertifizierte Sachverständige Angela Krause (M.Sc.) in Bamberg und Region. Verkehrswertgutachten, Kurzgutachten und gutachterliche Stellungnahmen zum Festpreis.",
+        "provider": { "@id": "https://www.gutachter-krause.de/#business" },
+        "serviceType": "Immobilienbewertung",
+        "areaServed": { "@type": "City", "name": "Bamberg" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welche Vorteile hat ein Gutachten bei der Bewertung meiner Immobilie?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Mit einem professionellen Gutachten erhalten Sie eine realistische Einschätzung des Verkaufspreises. Es ermöglicht fundierte Entscheidungen und bietet Preisverhandlungs-Argumente sowie Steuereinsparmöglichkeiten im Wert von mehreren tausend Euro. Bei Erbschaften schafft es eine rechtssichere Grundlage." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen einem Gutachter und einem Sachverständigen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Die Begriffe werden oft synonym verwendet. Ein Sachverständiger ist in der Regel durch anerkannte Zertifizierungsstellen (wie DEKRA oder IQ-ZERT nach DIN EN ISO/IEC 17024) nachweislich qualifiziert. Angela Krause ist 3-fach DEKRA-zertifiziert und IQ-ZERT-zertifiziert – das garantiert die höchste Qualifikationsstufe in Europa." }
+          },
+          {
+            "@type": "Question",
+            "name": "Was kostet die Bewertung meiner Immobilie?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Das Honorar bemisst sich am Verkehrswert der Immobilie sowie an der Schwierigkeit der Bewertung. Angela Krause erstellt Ihnen gerne ein individuelles Angebot zum Festpreis – inkl. Anfahrt, transparent und ohne versteckte Kosten." }
+          },
+          {
+            "@type": "Question",
+            "name": "Welches Gutachten brauche ich für das Finanzamt?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Für steuerliche Zwecke wird in der Regel ein Verkehrswertgutachten gemäß § 194 BauGB benötigt, das streng nach dem Bewertungsgesetz (BewG) und der ImmoWertV erstellt wird." }
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://www.gutachter-krause.de/sachverstaendiger/",
+        "name": "Immobiliensachverständige Bamberg – Angela Krause (M.Sc.)",
+        "description": "Zertifizierte Immobiliensachverständige Angela Krause (M.Sc.) in Bamberg & Region. Unabhängige Immobilienbewertung für Erbschaft, Scheidung, Finanzamt & Verkauf. Festpreis.",
+        "url": "https://www.gutachter-krause.de/sachverstaendiger/",
+        "speakable": {
+          "@type": "SpeakableSpecification",
+          "cssSelector": [".hero-content h1", ".hero-sub", ".faq-q", ".faq-a"]
+        },
+        "about": { "@id": "https://www.gutachter-krause.de/#business" }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 <!-- GTM noscript -->
