@@ -96,7 +96,6 @@
   .cb-btn-reject:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(45,125,34,.45); }
   @media (max-width: 640px) { #cb-banner { padding: 1.2rem 1rem; } .cb-buttons { flex-direction: column; } .cb-btn { min-width: unset; } }
   </style>
-  <script src="https://api.nforms.eu/shield.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -449,8 +448,7 @@
       </div>
       <div class="kontakt-form">
         <h3 style="color:var(--primary);margin-bottom:1.5rem;font-size:1.15rem">Ihre Anfrage</h3>
-        <form action="https://api.nforms.eu/f/nf_g8236epy40c570i9gj8d7qfiq1xcqcs0" method="post" data-nforms-key="nf_g8236epy40c570i9gj8d7qfiq1xcqcs0">
-          <input type="hidden" name="_redirect" value="https://www.gutachter-krause.de/danke.html">
+        <form action="/.netlify/functions/gutachter-anfrage" method="post">
           <div class="form-row">
             <div class="form-group"><label for="name">Ihr Name *</label><input type="text" id="name" name="name" placeholder="Max Mustermann" required></div>
             <div class="form-group"><label for="tel">Telefonnummer *</label><input type="tel" id="tel" name="tel" placeholder="0160 / ..." required></div>
@@ -480,13 +478,36 @@
             var hp = document.getElementById('website_url');
             if (hp && hp.value) return;
             if (Date.now() - loadTime < 3000) return;
-            var data = new FormData(form);
-            data.delete('website_url');
-            data.delete('_ts');
-            fetch(form.action, { method: 'POST', body: data }).then(function() {
-              window.open('https://www.gutachter-krause.de/danke.html', '_blank');
-              form.reset();
-              document.getElementById('form_ts').value = Date.now();
+            var btn = form.querySelector('.btn-submit');
+            btn.disabled = true;
+            btn.textContent = 'Wird gesendet …';
+            var payload = {
+              name: document.getElementById('name').value,
+              tel: document.getElementById('tel').value,
+              email: document.getElementById('email').value,
+              erreichbarkeit: document.getElementById('erreichbarkeit').value,
+              grund: document.getElementById('grund').value,
+              gebaeude: document.getElementById('gebaeude').value,
+              nachricht: document.getElementById('nachricht').value,
+              website: document.getElementById('website_url').value,
+              formzeit: loadTime.toString()
+            };
+            fetch('/.netlify/functions/gutachter-anfrage', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify(payload)
+            }).then(function(res) { return res.json(); }).then(function(data) {
+              if (data.success) {
+                window.location.href = 'danke.html';
+              } else {
+                btn.disabled = false;
+                btn.textContent = 'Jetzt Anfrage absenden →';
+                alert('Es gab ein Problem. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
+              }
+            }).catch(function() {
+              btn.disabled = false;
+              btn.textContent = 'Jetzt Anfrage absenden →';
+              alert('Es gab ein Problem. Bitte versuchen Sie es erneut oder rufen Sie uns an.');
             });
           });
         })();
