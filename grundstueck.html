@@ -500,13 +500,8 @@
             <div class="form-group"><label for="name">Ihr Name *</label><input type="text" id="name" name="name" placeholder="Max Mustermann" required></div>
             <div class="form-group"><label for="tel">Telefonnummer *</label><input type="tel" id="tel" name="tel" placeholder="0160 / ..." required></div>
           </div>
-          <div class="form-group"><label for="email">E-Mail-Adresse *</label><input type="email" id="email" name="email" placeholder="ihre@email.de" required></div>
-          <div class="form-row">
-            <div class="form-group"><label for="erreichbarkeit">Erreichbarkeit</label><select id="erreichbarkeit" name="erreichbarkeit"><option value="">Bitte wählen</option><option>08:00 – 11:00 Uhr</option><option>11:00 – 14:00 Uhr</option><option>14:00 – 17:00 Uhr</option><option>17:00 – 20:00 Uhr</option></select></div>
-            <div class="form-group"><label for="grund">Anliegen</label><select id="grund" name="grund"><option value="">Bitte wählen</option><option>Verkauf einer Immobilie</option><option>Kauf einer Immobilie</option><option>Erbschaft &amp; Schenkung</option><option>Scheidung</option><option>Steuerliche Angelegenheit</option></select></div>
-          </div>
-          <div class="form-group"><label for="gebaeude">Gebäudeart (optional)</label><select id="gebaeude" name="gebaeude"><option value="">Bitte wählen</option><option>Wohnimmobilie</option><option>Grundstück</option><option>Gewerbeimmobilie</option><option>Sonderimmobilie</option></select></div>
-          <div class="form-group"><label for="nachricht">Ihre Nachricht</label><textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen …"></textarea></div>
+          <div class="form-group"><label for="email">E-Mail-Adresse (optional)</label><input type="email" id="email" name="email" placeholder="ihre@email.de"></div>
+          <div class="form-group"><label for="nachricht">Ihre Nachricht (optional)</label><textarea id="nachricht" name="nachricht" placeholder="Beschreiben Sie kurz Ihr Anliegen …"></textarea></div>
           <div style="position:absolute;left:-9999px;top:-9999px;height:0;width:0;overflow:hidden" aria-hidden="true" tabindex="-1">
             <label for="website_url">Website</label>
             <input type="text" id="website_url" name="website_url" autocomplete="off" tabindex="-1">
@@ -532,9 +527,6 @@
               name: document.getElementById('name').value,
               tel: document.getElementById('tel').value,
               email: document.getElementById('email').value,
-              erreichbarkeit: document.getElementById('erreichbarkeit').value,
-              grund: document.getElementById('grund').value,
-              gebaeude: document.getElementById('gebaeude').value,
               nachricht: document.getElementById('nachricht').value,
               website: document.getElementById('website_url').value,
               formzeit: loadTime.toString()
