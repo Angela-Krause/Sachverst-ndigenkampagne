@@ -643,7 +643,7 @@ window.addEventListener('DOMContentLoaded', function() {
   }
 });
 function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
-function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';var dd=document.getElementById('ddParent');if(dd)dd.classList.remove('open');var nl=document.getElementById('navLinks');if(nl)nl.classList.remove('open');}
 document.addEventListener('keydown',function(e){if(e.key==='Escape'){document.querySelectorAll('.modal-overlay.open').forEach(function(m){m.classList.remove('open');});document.body.style.overflow='';}});
 
 function toggleNav() { document.getElementById('navLinks').classList.toggle('open'); }

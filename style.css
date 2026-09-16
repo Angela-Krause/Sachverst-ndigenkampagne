@@ -1097,6 +1097,7 @@ h3 {
   .nav-links > li { width: 100%; }
   .nav-links > li > a { padding: 0.65rem 1.5rem; border-radius: 0; width: 100%; }
   .nav-dropdown { position: static; box-shadow: none; border: none; border-top: none; background: var(--bg2); padding: 0; display: none; }
+  .nav-links > li.has-dropdown:hover .nav-dropdown { display: none; }
   .nav-links > li.has-dropdown.open .nav-dropdown { display: block; }
   .nav-links > li.has-dropdown > a { justify-content: space-between; }
   .nav-dropdown li a { padding-left: 2.5rem; }

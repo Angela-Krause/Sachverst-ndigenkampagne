@@ -1069,6 +1069,8 @@ function openModal(id) {
 function closeModal(id) {
   document.getElementById(id).classList.remove('open');
   document.body.style.overflow = '';
+  var dd = document.getElementById('ddParent'); if (dd) dd.classList.remove('open');
+  var nl = document.getElementById('navLinks'); if (nl) nl.classList.remove('open');
 }
 document.addEventListener('keydown', function(e) {
   if (e.key === 'Escape') {
