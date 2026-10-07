@@ -1033,15 +1033,7 @@
   </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 <script>
-const lenis = new Lenis({
-  duration: 1.3,
-  easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-  smoothTouch: false,
-});
-function lenisRaf(time) { lenis.raf(time); requestAnimationFrame(lenisRaf); }
-requestAnimationFrame(lenisRaf);
 function scrollAndOpen(modalId) {
   document.getElementById('navLinks').classList.remove('open');
   var section = document.getElementById('leistungen');
