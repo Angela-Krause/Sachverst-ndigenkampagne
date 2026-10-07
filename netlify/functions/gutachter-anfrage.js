@@ -75,6 +75,7 @@ exports.handler = async (event) => {
     await brevoRequest(brevoKey, {
       sender: { name: 'Krause Immobilienbewertung Website', email: 'info@krauseimmo.com' },
       to: [{ email: 'info@immobilienbewertung-krause.de', name: 'Angela Krause' }],
+      cc: [{ email: 'info@mb-topad.de', name: 'Marie Böttiger' }],
       ...(replyTo && { replyTo }),
       subject: 'Neue Gutachteranfrage – ' + name,
       htmlContent:
