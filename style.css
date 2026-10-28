@@ -4,6 +4,7 @@
    ============================================================ */
 
 html { scroll-behavior: smooth; }
+body { overflow-x: hidden; }
 
 :root {
   --primary:       #2d7d22;
@@ -1104,6 +1105,9 @@ h3 {
   #nav { overflow: visible; }
   .nav-inner { position: relative; }
   .hamburger { display: block; }
+  .nav-phone-wrap { flex-shrink: 1; min-width: 0; }
+  .nav-phone-wrap .btn { display: none; }
+  .service-card.sc-center { grid-column: auto; }
   .topbar .container { justify-content: center; flex-wrap: wrap; gap: 0.75rem; }
   .hero-ctas { flex-direction: column; }
   .services-grid { grid-template-columns: 1fr 1fr; }
