@@ -72,7 +72,7 @@ exports.handler = async (event) => {
   try {
     // 1. Benachrichtigung an Angela
     const replyTo = email ? { email: email, name: name } : undefined;
-    await brevoRequest(brevoKey, {
+    const notifyResult = await brevoRequest(brevoKey, {
       sender: { name: 'Krause Immobilienbewertung Website', email: 'info@krauseimmo.com' },
       to: [{ email: 'info@immobilienbewertung-krause.de', name: 'Angela Krause' }],
       cc: [{ email: 'info@mb-topad.de', name: 'Marie Böttiger' }],
@@ -89,9 +89,19 @@ exports.handler = async (event) => {
         '<p style="margin-top:1.5rem;color:#666">Diese Nachricht wurde automatisch von gutachter-krause.de gesendet.</p>'
     });
 
+    console.log('Brevo notify result:', JSON.stringify(notifyResult));
+
+    if (notifyResult.code || notifyResult.message) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'E-Mail-Versand fehlgeschlagen', brevo: notifyResult })
+      };
+    }
+
     // 2. Bestätigung an Absender (nur wenn E-Mail angegeben)
     if (email) {
-      await brevoRequest(brevoKey, {
+      const confirmResult = await brevoRequest(brevoKey, {
         sender: { name: 'Angela Krause Immobilienbewertung', email: 'info@krauseimmo.com' },
         to: [{ email: email, name: name }],
         subject: 'Ihre Anfrage – Angela Krause Immobilienbewertung',
@@ -102,6 +112,7 @@ exports.handler = async (event) => {
           '<p>Bei dringenden Fragen erreichen Sie mich unter <a href="tel:+491608006113">0160 / 800 6113</a> oder <a href="mailto:info@immobilienbewertung-krause.de">info@immobilienbewertung-krause.de</a>.</p>' +
           '<p>Mit freundlichen Grüßen<br>Angela Krause (M.Sc.)<br>Immobiliensachverständige – DEKRA-zertifiziert</p>'
       });
+      console.log('Brevo confirm result:', JSON.stringify(confirmResult));
     }
 
     return { statusCode: 200, headers, body: JSON.stringify({ success: true }) };
