@@ -196,6 +196,10 @@
   </script>
 </head>
 <body>
+<!-- Netlify Forms Backup (verstecktes Formular für Bot-Erkennung) -->
+<form name="gutachter-anfrage" netlify netlify-honeypot="bot-field" hidden>
+  <input name="name"><input name="tel"><input name="email"><input name="nachricht">
+</form>
 <!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH98G2V6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End GTM noscript -->
@@ -217,12 +221,7 @@
         <div class="logo-icon">
           <div class="logo-icon-inner">
             <span class="logo-ki">KI</span>
-            <span class="logo-name">Krause<br>Immobilien-<br>bewertung</span>
           </div>
-        </div>
-        <div class="logo-wordmark">
-          <span class="logo-main">Krause Immobiliengutachter</span>
-          <span class="logo-sub">Bamberg &amp; Region</span>
         </div>
       </a>
       <ul class="nav-links" id="navLinks">
