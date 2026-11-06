@@ -3,8 +3,9 @@
  * Es wird nichts auf dem Gerät gespeichert (kein Cookie, kein localStorage).
  * Damit die Kennung beim Wechsel auf eine Unterseite erhalten bleibt,
  * wird sie an interne Links angehängt.
- * Das Formular übermittelt die Kennung nur zur Zuordnung der Anfrage;
- * an Google geht sie nur, wenn die Person im Formular zustimmt.
+ * Das Formular übermittelt die Kennung zur Zuordnung der Anfrage.
+ * An Google geht sie später nur, wenn die Person im Cookie-Banner
+ * „Marketing & Werbung“ zugestimmt hat (krauseMarketingConsent).
  */
 (function () {
   var KEYS = ['gclid', 'gbraid', 'wbraid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term'];
@@ -19,13 +20,19 @@
   } catch (e) { /* alte Browser: einfach ohne Kennung */ }
 
   window.krauseAdParams = params;
-  var hasAdId = !!(params.gclid || params.gbraid || params.wbraid);
+
+  // Entscheidung aus dem Cookie-Banner („Marketing & Werbung“) zum Zeitpunkt des Absendens
+  window.krauseMarketingConsent = function () {
+    try {
+      var raw = localStorage.getItem('krause_immo_consent');
+      if (!raw) return false;
+      var d = JSON.parse(raw);
+      if (d.expires && Date.now() > d.expires) return false;
+      return d.marketing === true;
+    } catch (e) { return false; }
+  };
 
   function init() {
-    // Einwilligungs-Häkchen nur zeigen, wenn die Person über eine Anzeige kam
-    var wrap = document.getElementById('ads-consent-wrap');
-    if (wrap && hasAdId) wrap.hidden = false;
-
     // Kennung an interne Links anhängen
     if (!Object.keys(params).length) return;
     var links = document.querySelectorAll('a[href]');

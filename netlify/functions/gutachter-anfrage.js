@@ -192,7 +192,7 @@ exports.handler = async (event) => {
         (nachricht ? '<tr><td style="padding:8px;border-bottom:1px solid #eee"><strong>Nachricht</strong></td><td style="padding:8px;border-bottom:1px solid #eee">' + esc(nachricht) + '</td></tr>' : '') +
         '<tr><td style="padding:8px;border-bottom:1px solid #eee"><strong>Herkunft</strong></td><td style="padding:8px;border-bottom:1px solid #eee">' + esc(extra.quelle) + (extra.utm_term ? ' (Suchbegriff: ' + esc(extra.utm_term) + ')' : '') + '</td></tr>' +
         '<tr><td style="padding:8px;border-bottom:1px solid #eee"><strong>Seite</strong></td><td style="padding:8px;border-bottom:1px solid #eee">' + esc(extra.seite) + '</td></tr>' +
-        (hasAdId ? '<tr><td style="padding:8px;border-bottom:1px solid #eee"><strong>Einwilligung Erfolgsmessung</strong></td><td style="padding:8px;border-bottom:1px solid #eee">' + (extra.ads_consent ? 'ja' : 'nein') + '</td></tr>' : '') +
+        (hasAdId ? '<tr><td style="padding:8px;border-bottom:1px solid #eee"><strong>Marketing-Einwilligung (Cookie-Banner)</strong></td><td style="padding:8px;border-bottom:1px solid #eee">' + (extra.ads_consent ? 'ja' : 'nein') + '</td></tr>' : '') +
         '</table>' +
         '<p style="margin-top:1rem">Bitte in der Tabelle „Anfragen Gutachter Krause“ den Status setzen, sobald ein Angebot oder Auftrag daraus wird.</p>' +
         '<p style="margin-top:1.5rem;color:#666">Diese Nachricht wurde automatisch von gutachter-krause.de gesendet.</p>'
