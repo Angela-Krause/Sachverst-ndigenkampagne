@@ -928,6 +928,7 @@ h3 {
   gap: 0.75rem;
   margin-bottom: 1.25rem;
 }
+.form-check[hidden] { display: none; }
 .form-check input { margin-top: 0.25rem; accent-color: var(--primary); flex-shrink: 0; }
 .form-check label { font-size: 0.77rem; color: var(--muted); line-height: 1.6; }
 .form-check label a { color: var(--primary); text-decoration: underline; }
