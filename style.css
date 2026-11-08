@@ -415,8 +415,16 @@ h1 .italic { font-style: italic; color: #a5d6a7; }
   color: rgba(255,255,255,0.7);
   font-size: 0.88rem;
 }
+/* Tablet und Handy: Foto oben im Kopfbereich, kleiner und mittig */
 @media (max-width: 1024px) {
-  .hero-photo-wrap { display: none; }
+  .hero-photo-wrap { order: -1; justify-self: center; text-align: center; }
+  .hero-photo-img { width: 200px; height: 240px; margin: 0 auto; box-shadow: 0 12px 36px rgba(0,0,0,0.3); }
+  .hero-photo-caption { margin-top: 0.5rem; font-size: 0.82rem; }
+}
+@media (max-width: 480px) {
+  #hero { padding-top: 2.25rem; }
+  .hero-photo-img { width: 140px; height: 170px; border-width: 3px; }
+  .hero-photo-caption { font-size: 0.78rem; }
 }
 
 /* ── KONTAKT SEITENTAB ── */
