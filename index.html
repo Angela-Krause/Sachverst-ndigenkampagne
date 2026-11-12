@@ -198,11 +198,12 @@
     ]
   }
   </script>
+  <script src="ad-params.js" defer></script>
 </head>
 <body>
 <!-- Netlify Forms Backup (verstecktes Formular für Bot-Erkennung) -->
 <form name="gutachter-anfrage" netlify netlify-honeypot="bot-field" hidden>
-  <input name="name"><input name="tel"><input name="email"><input name="nachricht">
+  <input name="name"><input name="tel"><input name="email"><input name="nachricht"><input name="quelle"><input name="gclid"><input name="seite"><input name="einwilligung_google">
 </form>
 <!-- GTM noscript -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH98G2V6" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -707,7 +708,15 @@
               email: document.getElementById('email').value,
               nachricht: document.getElementById('nachricht').value,
               website: document.getElementById('website_url').value,
-              formzeit: loadTime.toString()
+              formzeit: loadTime.toString(),
+              gclid: (window.krauseAdParams || {}).gclid || '',
+              gbraid: (window.krauseAdParams || {}).gbraid || '',
+              wbraid: (window.krauseAdParams || {}).wbraid || '',
+              utm_source: (window.krauseAdParams || {}).utm_source || '',
+              utm_campaign: (window.krauseAdParams || {}).utm_campaign || '',
+              utm_term: (window.krauseAdParams || {}).utm_term || '',
+              seite: window.location.pathname,
+              ads_consent: !!(window.krauseMarketingConsent && window.krauseMarketingConsent())
             };
             fetch('/.netlify/functions/gutachter-anfrage', {
               method: 'POST',
@@ -715,7 +724,9 @@
               body: JSON.stringify(payload)
             }).then(function(res) { return res.json(); }).then(function(data) {
               if (data.success) {
-                window.location.href = 'danke.html';
+                var zurDankeSeite = function() { window.location.href = 'danke.html'; };
+                if (window.krauseLeadEvent) window.krauseLeadEvent(payload.email, payload.tel, zurDankeSeite);
+                else zurDankeSeite();
               } else {
                 btn.disabled = false;
                 btn.textContent = 'Jetzt Anfrage absenden →';

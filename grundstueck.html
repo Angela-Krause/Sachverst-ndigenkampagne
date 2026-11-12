@@ -158,6 +158,7 @@
     ]
   }
   </script>
+  <script src="ad-params.js" defer></script>
 </head>
 <body>
 <!-- GTM noscript -->
@@ -534,7 +535,15 @@
               email: document.getElementById('email').value,
               nachricht: document.getElementById('nachricht').value,
               website: document.getElementById('website_url').value,
-              formzeit: loadTime.toString()
+              formzeit: loadTime.toString(),
+              gclid: (window.krauseAdParams || {}).gclid || '',
+              gbraid: (window.krauseAdParams || {}).gbraid || '',
+              wbraid: (window.krauseAdParams || {}).wbraid || '',
+              utm_source: (window.krauseAdParams || {}).utm_source || '',
+              utm_campaign: (window.krauseAdParams || {}).utm_campaign || '',
+              utm_term: (window.krauseAdParams || {}).utm_term || '',
+              seite: window.location.pathname,
+              ads_consent: !!(window.krauseMarketingConsent && window.krauseMarketingConsent())
             };
             fetch('/.netlify/functions/gutachter-anfrage', {
               method: 'POST',
@@ -542,7 +551,9 @@
               body: JSON.stringify(payload)
             }).then(function(res) { return res.json(); }).then(function(data) {
               if (data.success) {
-                window.location.href = 'danke.html';
+                var zurDankeSeite = function() { window.location.href = 'danke.html'; };
+                if (window.krauseLeadEvent) window.krauseLeadEvent(payload.email, payload.tel, zurDankeSeite);
+                else zurDankeSeite();
               } else {
                 btn.disabled = false;
                 btn.textContent = 'Jetzt Anfrage absenden →';
