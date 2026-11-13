@@ -1,6 +1,6 @@
 /*
  * Offline-Conversions: Tippt jemand auf die Telefonnummer, wird in der
- * Anfragen-Tabelle eine Zeile „Anruf über Website“ angelegt. Angela trägt
+ * Anfragen-Tabelle eine Zeile „Anruf über Landingpage“ angelegt. Angela trägt
  * danach Name, Nummer und Status nach. Es werden keine Kontaktdaten erfasst,
  * nur Zeitpunkt, Seite und – mit Einwilligung – die Anzeigen-Kennung.
  * Umgebungsvariablen: SHEET_WEBHOOK_URL, SHEET_WEBHOOK_SECRET (wie gutachter-anfrage).
@@ -73,7 +73,7 @@ exports.handler = async (event) => {
     tel: '',
     email: '',
     nachricht: 'Klick auf die Telefonnummer – bitte Name, Nummer des Anrufers und Status ergänzen (Datum/Uhrzeit ggf. aus der Anrufliste anpassen)',
-    quelle: 'Anruf über Website',
+    quelle: 'Anruf über Landingpage',
     seite: clean(body.seite, 150) || '/',
     gclid, gbraid, wbraid,
     utm_campaign: einwilligung ? clean(body.utm_campaign, 150) : '',
