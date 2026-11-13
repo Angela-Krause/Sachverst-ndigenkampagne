@@ -61,7 +61,7 @@
   };
 
   /*
-   * Klick auf eine Telefonnummer: einmal pro Seitenaufruf eine Zeile „Anruf über Website“
+   * Klick auf eine Telefonnummer: einmal pro Seitenaufruf eine Zeile „Anruf über Landingpage“
    * in der Anfragen-Tabelle anlegen (ohne Kontaktdaten; Kennung nur mit Einwilligung).
    */
   var anrufGemeldet = false;
