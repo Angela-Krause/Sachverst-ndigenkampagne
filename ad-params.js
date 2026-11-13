@@ -60,6 +60,25 @@
     } catch (e) { los(); }
   };
 
+  /*
+   * Klick auf eine Telefonnummer: einmal pro Seitenaufruf eine Zeile „Anruf über Landingpage“
+   * in der Anfragen-Tabelle anlegen (ohne Kontaktdaten; Kennung nur mit Einwilligung).
+   */
+  var anrufGemeldet = false;
+  document.addEventListener('click', function (ev) {
+    try {
+      var a = ev.target && ev.target.closest ? ev.target.closest('a[href^="tel:"]') : null;
+      if (!a || anrufGemeldet) return;
+      anrufGemeldet = true;
+      var daten = { seite: window.location.pathname, ads_consent: window.krauseMarketingConsent() };
+      ['gclid', 'gbraid', 'wbraid', 'utm_campaign', 'utm_term'].forEach(function (k) { if (params[k]) daten[k] = params[k]; });
+      var blob = new Blob([JSON.stringify(daten)], { type: 'application/json' });
+      if (!(navigator.sendBeacon && navigator.sendBeacon('/.netlify/functions/anruf-klick', blob))) {
+        fetch('/.netlify/functions/anruf-klick', { method: 'POST', body: JSON.stringify(daten), headers: { 'Content-Type': 'application/json' }, keepalive: true }).catch(function () {});
+      }
+    } catch (e) { /* Anruf funktioniert trotzdem */ }
+  }, true);
+
   function init() {
     // Kennung an interne Links anhängen
     if (!Object.keys(params).length) return;
